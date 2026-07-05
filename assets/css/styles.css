@@ -198,6 +198,11 @@ main, header, footer { position: relative; z-index: 2; }
   font-family: var(--disp); font-weight: 700; font-size: 27px; letter-spacing: -0.01em;
 }
 .card p { color: var(--muted); font-size: 15px; flex: 1; }
+.card-note {
+  font-size: 12.5px !important; color: var(--faint) !important;
+  border-top: 1px dashed var(--line); padding-top: 12px; flex: 0 !important;
+}
+.card-note .lock { font-size: 11px; margin-right: 4px; }
 .card-stack { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; margin-top: 4px; }
 .card-stack li {
   font-size: 11px; letter-spacing: 1px; color: var(--faint);
