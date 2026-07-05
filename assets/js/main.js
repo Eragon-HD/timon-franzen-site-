@@ -2,6 +2,48 @@
 (() => {
   const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+  /* ambient hero animation — soft aurora of the accent palette.
+     Drawn at 1/4 resolution and scaled up, so it stays cheap. */
+  const canvas = document.getElementById("heroCanvas");
+  if (canvas && !reduced) {
+    const ctx = canvas.getContext("2d");
+    const SCALE = 0.25;
+    let w = 0, h = 0, raf = 0;
+    const blobs = [
+      { c: [255, 154, 60], r: 0.42, ox: 0.72, oy: 0.30, ax: 0.16, ay: 0.12, sp: 0.00023, ph: 0.0, a: 0.16 },
+      { c: [255, 91, 91], r: 0.36, ox: 0.55, oy: 0.62, ax: 0.20, ay: 0.10, sp: 0.00017, ph: 2.1, a: 0.13 },
+      { c: [150, 90, 255], r: 0.30, ox: 0.85, oy: 0.68, ax: 0.10, ay: 0.16, sp: 0.00029, ph: 4.2, a: 0.10 },
+      { c: [255, 200, 120], r: 0.22, ox: 0.35, oy: 0.25, ax: 0.12, ay: 0.14, sp: 0.00021, ph: 1.2, a: 0.09 },
+    ];
+    const size = () => {
+      const r = canvas.getBoundingClientRect();
+      w = canvas.width = Math.max(1, r.width * SCALE);
+      h = canvas.height = Math.max(1, r.height * SCALE);
+    };
+    size();
+    window.addEventListener("resize", size, { passive: true });
+    const draw = (t) => {
+      ctx.clearRect(0, 0, w, h);
+      ctx.globalCompositeOperation = "lighter";
+      for (const b of blobs) {
+        const x = (b.ox + Math.sin(t * b.sp + b.ph) * b.ax) * w;
+        const y = (b.oy + Math.cos(t * b.sp * 1.3 + b.ph) * b.ay) * h;
+        const rad = b.r * Math.max(w, h);
+        const g = ctx.createRadialGradient(x, y, 0, x, y, rad);
+        g.addColorStop(0, `rgba(${b.c[0]},${b.c[1]},${b.c[2]},${b.a})`);
+        g.addColorStop(1, "rgba(0,0,0,0)");
+        ctx.fillStyle = g;
+        ctx.fillRect(0, 0, w, h);
+      }
+      raf = requestAnimationFrame(draw);
+    };
+    raf = requestAnimationFrame(draw);
+    document.addEventListener("visibilitychange", () => {
+      if (document.hidden) cancelAnimationFrame(raf);
+      else raf = requestAnimationFrame(draw);
+    });
+  }
+
   /* pointer-following glow */
   if (!reduced) {
     const root = document.documentElement;
