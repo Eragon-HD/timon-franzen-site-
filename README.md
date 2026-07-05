@@ -16,6 +16,6 @@ python3 -m http.server 4180 --directory .
 
 ## Edit me
 
-- Contact email lives in `index.html` (three places: nav, contact, footer).
+- Contact email (`contact@timonfranzen.ch`) lives in `index.html` (nav, contact section).
 - Project cards are plain `<article class="card">` blocks — copy one to add work.
 - Accent colours: `--accent` / `--accent-2` in `assets/css/styles.css`.
