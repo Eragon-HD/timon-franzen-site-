@@ -66,7 +66,9 @@ main, header, footer { position: relative; z-index: 2; }
 .nav-brand {
   font-family: var(--disp); font-weight: 800; font-size: 22px;
   color: var(--text); text-decoration: none; letter-spacing: 1px;
+  display: inline-flex; align-items: center; gap: 10px;
 }
+.nav-mark { display: block; }
 .nav-brand .tick { color: var(--accent); animation: blink 1.4s steps(2) infinite; }
 @keyframes blink { 50% { opacity: 0; } }
 .nav-links { display: flex; align-items: center; gap: clamp(16px, 3vw, 34px); }

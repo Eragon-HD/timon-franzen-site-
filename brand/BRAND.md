@@ -1,21 +1,20 @@
 # Timon Franzen — brand
 
-## The mark
+## The mark (Timon's pick, 2026-07-06)
 
-`bird-mark.svg` (primary) · `bird-mark-head.svg` (bird-forward alternate)
+`bird-mark.svg` (PRIMARY — the feather fan) · `bird-mark-crescent-alt.svg` (alternate)
 
-Two solid crescents — wings mid-beat — locked into an S. Nothing else.
+The primary: a bird mid-wingbeat as **eleven fanned feather strokes per wing
+in an S-curve, inside a broken thin circle**. Line-drawn, currentColor,
+rotationally symmetric.
 
-- **Solid mass, not lines.** Expensive marks are single confident shapes;
-  decoration is what reads cheap. Two shapes, sharp tips, smooth arcs.
-- **The S** carries three meanings at once: the bird's wingbeat, motion,
-  and a quiet nod to *Studio*.
-- **Rotational symmetry** (180°): composed, inevitable, old-money calm.
-  The diagonal sweep: forward, hungry, modern.
-- The alternate adds a single head-dot above the upper wing, which makes
-  the bird explicit. Use it where the brand is new to the viewer.
-- **One colour** (`currentColor`), no gradients in the mark, works from
-  16 px favicon to poster without modification.
+- In use: site favicon + nav mark (`favicon.svg` = simplified 8-feather
+  version in brand orange #ff9a3c, thick strokes for small sizes).
+- The `<img>` tag can't inherit currentColor — use `favicon.svg` (explicit
+  colour) in contexts without CSS control, `bird-mark.svg` inline where the
+  surrounding colour should flow in.
+- The crescent alternate (two solid sharp crescents in an S) exists from the
+  premium exploration — kept as an option, not in use.
 
 Character in one line: *old money posture, young hunger — confident, quiet.*
 
