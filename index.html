@@ -6,7 +6,7 @@
   <title>Timon Franzen — Developer, Basel & Zürich</title>
   <meta name="description" content="Timon Franzen builds fast, distinctive websites and intelligent tools for people and small businesses in Switzerland." />
   <link rel="stylesheet" href="assets/css/fonts.css" />
-  <link rel="stylesheet" href="assets/css/styles.css?v=2" />
+  <link rel="stylesheet" href="assets/css/styles.css?v=3" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>⚡</text></svg>" />
 </head>
 <body>
@@ -16,10 +16,11 @@
   <header class="nav">
     <a class="nav-brand" href="#top">TF<span class="tick">_</span></a>
     <nav class="nav-links" aria-label="Main">
-      <a href="#work">Work</a>
-      <a href="#about">About</a>
-      <a href="#services">Services</a>
-      <a class="nav-cta" href="mailto:contact@timonfranzen.ch">Get in touch</a>
+      <a href="#work" data-i18n="nav_work">Work</a>
+      <a href="#about" data-i18n="nav_about">About</a>
+      <a href="#services" data-i18n="nav_services">Services</a>
+      <button class="lang-btn mono" id="langBtn" aria-label="Sprache wechseln / switch language">DE</button>
+      <a class="nav-cta" href="mailto:contact@timonfranzen.ch" data-i18n="nav_cta">Get in touch</a>
     </nav>
   </header>
 
@@ -27,27 +28,27 @@
     <!-- ── Hero ─────────────────────────────────────────── -->
     <section class="hero">
       <canvas class="hero-canvas" id="heroCanvas" aria-hidden="true"></canvas>
-      <p class="kicker reveal"><span class="dot"></span>Available for new projects</p>
+      <p class="kicker reveal"><span class="dot"></span><span data-i18n="kicker">Available for new projects</span></p>
       <h1 class="hero-title">
         <span class="line"><span class="word">Timon</span></span>
         <span class="line"><span class="word accent">Franzen</span></span>
       </h1>
-      <p class="hero-sub reveal">I design and build <em>fast, distinctive websites</em> and
+      <p class="hero-sub reveal" data-i18n-html="hero_sub">I design and build <em>fast, distinctive websites</em> and
         <em>intelligent tools</em> — from first sketch to live product.</p>
       <div class="hero-meta reveal">
-        <span class="chip">Basel → Zürich, Switzerland</span>
+        <span class="chip" data-i18n="chip_loc">Basel → Zürich, Switzerland</span>
         <span class="chip mono" id="localTime">—:—</span>
       </div>
       <a class="hero-scroll reveal" href="#work" aria-label="Scroll to work">
-        <span class="scroll-line"></span>Selected work
+        <span class="scroll-line"></span><span data-i18n="hero_scroll">Selected work</span>
       </a>
     </section>
 
     <!-- ── Marquee ──────────────────────────────────────── -->
     <div class="marquee" aria-hidden="true">
       <div class="marquee-track">
-        <span>Web design</span><i>✦</i><span>Development</span><i>✦</i><span>AI integration</span><i>✦</i><span>Analytics</span><i>✦</i><span>Automation</span><i>✦</i>
-        <span>Web design</span><i>✦</i><span>Development</span><i>✦</i><span>AI integration</span><i>✦</i><span>Analytics</span><i>✦</i><span>Automation</span><i>✦</i>
+        <span data-i18n="mq1">Web design</span><i>✦</i><span data-i18n="mq2">Development</span><i>✦</i><span data-i18n="mq3">AI integration</span><i>✦</i><span data-i18n="mq4">Analytics</span><i>✦</i><span data-i18n="mq5">Automation</span><i>✦</i>
+        <span data-i18n="mq1">Web design</span><i>✦</i><span data-i18n="mq2">Development</span><i>✦</i><span data-i18n="mq3">AI integration</span><i>✦</i><span data-i18n="mq4">Analytics</span><i>✦</i><span data-i18n="mq5">Automation</span><i>✦</i>
       </div>
     </div>
 
@@ -55,17 +56,17 @@
     <section class="section" id="work">
       <div class="section-head reveal">
         <span class="index mono">01</span>
-        <h2>Selected work</h2>
+        <h2 data-i18n="h_work">Selected work</h2>
       </div>
 
       <div class="cards">
         <article class="card reveal" data-tilt>
           <div class="card-top">
-            <span class="card-tag mono">Retail · Basel</span>
+            <span class="card-tag mono" data-i18n="c1_tag">Retail · Basel</span>
             <span class="card-year mono">2026</span>
           </div>
           <h3>TwentyFour Sport</h3>
-          <p>A sharp, fast web presence for a Basel outdoor &amp; ski shop — official GTS dealer.
+          <p data-i18n="c1_desc">A sharp, fast web presence for a Basel outdoor &amp; ski shop — official GTS dealer.
              Hand-built, no frameworks, loads in a blink.</p>
           <ul class="card-stack mono">
             <li>HTML</li><li>CSS</li><li>JS</li>
@@ -74,11 +75,11 @@
 
         <article class="card reveal" data-tilt>
           <div class="card-top">
-            <span class="card-tag mono">AI · Personal OS</span>
+            <span class="card-tag mono" data-i18n="c2_tag">AI · Personal OS</span>
             <span class="card-year mono">2026</span>
           </div>
           <h3>J.A.R.V.I.S.</h3>
-          <p>A voice-enabled AI command centre that runs my day: calendar, tasks, music, Swiss
+          <p data-i18n="c2_desc">A voice-enabled AI command centre that runs my day: calendar, tasks, music, Swiss
              transport, reminders and long-term memory — powered by Claude.</p>
           <ul class="card-stack mono">
             <li>Python</li><li>FastAPI</li><li>React</li><li>Claude API</li>
@@ -87,14 +88,14 @@
 
         <article class="card reveal" data-tilt>
           <div class="card-top">
-            <span class="card-tag mono">Data · Prospecting</span>
+            <span class="card-tag mono" data-i18n="c3_tag">Data · Prospecting</span>
             <span class="card-year mono">2026</span>
           </div>
           <h3>LeadScout</h3>
-          <p>An engine that scans Swiss business directories for companies with weak or missing
+          <p data-i18n="c3_desc">An engine that scans Swiss business directories for companies with weak or missing
              web presence, scores them, and drafts personalised outreach.</p>
-          <p class="card-note"><span class="lock">🔒</span> Described only — for copyright reasons,
-             the tool itself isn't shown publicly.</p>
+          <p class="card-note"><span class="lock">🔒</span> <span data-i18n="c3_note">Described only — for copyright reasons,
+             the tool itself isn't shown publicly.</span></p>
           <ul class="card-stack mono">
             <li>Python</li><li>SQLite</li><li>Claude API</li>
           </ul>
@@ -106,23 +107,23 @@
     <section class="section" id="about">
       <div class="section-head reveal">
         <span class="index mono">02</span>
-        <h2>About</h2>
+        <h2 data-i18n="h_about">About</h2>
       </div>
       <div class="about-grid">
-        <p class="about-lede reveal">I'm a developer based between Basel and Zürich. Years of
+        <p class="about-lede reveal" data-i18n-html="about_lede">I'm a developer based between Basel and Zürich. Years of
           competitive ice hockey taught me one thing that carries into everything I build:
           <strong>relentless, focused work wins.</strong></p>
         <div class="about-body reveal">
-          <p>I care about the details most people scroll past — type, motion, load time, the
+          <p data-i18n="about_p1">I care about the details most people scroll past — type, motion, load time, the
              feel of a page under your thumb. I build with a small footprint and a long
              attention span: no bloat, no templates, nothing off the shelf.</p>
-          <p>Right now I'm building websites for Swiss small businesses and AI-powered tools
+          <p data-i18n="about_p2">Right now I'm building websites for Swiss small businesses and AI-powered tools
              that quietly do real work in the background.</p>
         </div>
         <div class="stats reveal">
-          <div class="stat"><span class="stat-num" data-count="3">0</span><span class="stat-label">Products shipped this year</span></div>
-          <div class="stat"><span class="stat-num" data-count="100">0</span><span class="stat-label">Lighthouse performance target</span></div>
-          <div class="stat"><span class="stat-num" data-count="2">0</span><span class="stat-label">Cities, one commitment</span></div>
+          <div class="stat"><span class="stat-num" data-count="3">0</span><span class="stat-label" data-i18n="st1">Products shipped this year</span></div>
+          <div class="stat"><span class="stat-num" data-count="100">0</span><span class="stat-label" data-i18n="st2">Lighthouse performance target</span></div>
+          <div class="stat"><span class="stat-num" data-count="2">0</span><span class="stat-label" data-i18n="st3">Cities, one commitment</span></div>
         </div>
       </div>
     </section>
@@ -131,25 +132,25 @@
     <section class="section" id="services">
       <div class="section-head reveal">
         <span class="index mono">03</span>
-        <h2>What I do</h2>
+        <h2 data-i18n="h_services">What I do</h2>
       </div>
       <div class="services">
         <div class="service reveal">
           <span class="service-num mono">a</span>
-          <h3>Websites</h3>
-          <p>Distinctive, hand-built sites for shops, studios and independents. Designed to
+          <h3 data-i18n="s1_t">Websites</h3>
+          <p data-i18n="s1_d">Distinctive, hand-built sites for shops, studios and independents. Designed to
              stand out, engineered to load instantly.</p>
         </div>
         <div class="service reveal">
           <span class="service-num mono">b</span>
-          <h3>Web apps &amp; automation</h3>
-          <p>Small tools that remove boring work — dashboards, booking flows, data pipelines,
+          <h3 data-i18n="s2_t">Web apps &amp; automation</h3>
+          <p data-i18n="s2_d">Small tools that remove boring work — dashboards, booking flows, data pipelines,
              internal apps that actually get used.</p>
         </div>
         <div class="service reveal">
           <span class="service-num mono">c</span>
-          <h3>AI integration</h3>
-          <p>Assistants, chat interfaces and smart features built on Claude — grounded in your
+          <h3 data-i18n="s3_t">AI integration</h3>
+          <p data-i18n="s3_d">Assistants, chat interfaces and smart features built on Claude — grounded in your
              data, shaped to your workflow.</p>
         </div>
       </div>
@@ -157,9 +158,9 @@
 
     <!-- ── Contact ──────────────────────────────────────── -->
     <section class="contact" id="contact">
-      <p class="kicker reveal"><span class="dot"></span>Have a project in mind?</p>
+      <p class="kicker reveal"><span class="dot"></span><span data-i18n="contact_kicker">Have a project in mind?</span></p>
       <a class="contact-mail reveal" href="mailto:contact@timonfranzen.ch">
-        <span class="contact-word">Let's&nbsp;talk</span>
+        <span class="contact-word" data-i18n-html="contact_word">Let's&nbsp;talk</span>
         <span class="contact-arrow">→</span>
       </a>
       <p class="contact-sub reveal mono">contact@timonfranzen.ch</p>
@@ -169,9 +170,9 @@
   <footer class="footer">
     <span>© <span id="year">2026</span> Timon Franzen</span>
     <span class="mono">Basel · Zürich · CH</span>
-    <a href="#top">Back to top ↑</a>
+    <a href="#top" data-i18n="footer_top">Back to top ↑</a>
   </footer>
 
-  <script src="assets/js/main.js?v=2"></script>
+  <script src="assets/js/main.js?v=3"></script>
 </body>
 </html>

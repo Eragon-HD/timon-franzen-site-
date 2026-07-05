@@ -2,6 +2,78 @@
 (() => {
   const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+  /* ── EN/DE language switch (Swiss German: ss, never ß) ── */
+  const I18N = {
+    de: {
+      nav_work: "Projekte", nav_about: "Über mich", nav_services: "Angebot", nav_cta: "Kontakt",
+      kicker: "Verfügbar für neue Projekte",
+      hero_sub: "Ich entwerfe und baue <em>schnelle, unverwechselbare Websites</em> und <em>intelligente Tools</em> — von der ersten Skizze bis zum fertigen Produkt.",
+      chip_loc: "Basel → Zürich, Schweiz",
+      hero_scroll: "Ausgewählte Projekte",
+      mq1: "Webdesign", mq2: "Entwicklung", mq3: "KI-Integration", mq4: "Analytik", mq5: "Automatisierung",
+      h_work: "Ausgewählte Projekte",
+      c1_tag: "Detailhandel · Basel",
+      c1_desc: "Ein prägnanter, schneller Webauftritt für ein Basler Outdoor- und Skigeschäft — offizieller GTS-Händler. Von Hand gebaut, ohne Frameworks, lädt im Wimpernschlag.",
+      c2_tag: "KI · Persönliches OS",
+      c2_desc: "Eine sprachgesteuerte KI-Kommandozentrale für meinen Alltag: Kalender, Aufgaben, Musik, ÖV, Erinnerungen und Langzeitgedächtnis — angetrieben von Claude.",
+      c3_tag: "Daten · Akquise",
+      c3_desc: "Ein System, das Schweizer Firmenverzeichnisse nach Unternehmen mit schwachem oder fehlendem Webauftritt durchsucht, sie bewertet und persönliche Erstkontakte entwirft.",
+      c3_note: "Nur beschrieben — aus urheberrechtlichen Gründen wird das Tool selbst nicht öffentlich gezeigt.",
+      h_about: "Über mich",
+      about_lede: "Ich bin Entwickler zwischen Basel und Zürich. Jahre im leistungsorientierten Eishockey haben mich eines gelehrt, und es steckt in allem, was ich baue: <strong>konsequente, fokussierte Arbeit gewinnt.</strong>",
+      about_p1: "Mich interessieren die Details, an denen die meisten vorbeiscrollen — Typografie, Bewegung, Ladezeit, wie sich eine Seite unter dem Daumen anfühlt. Ich baue schlank und mit langem Atem: kein Ballast, keine Templates, nichts von der Stange.",
+      about_p2: "Aktuell baue ich Websites für Schweizer KMU und KI-Tools, die im Hintergrund still echte Arbeit erledigen.",
+      st1: "Produkte dieses Jahr", st2: "Lighthouse-Performance-Ziel", st3: "Städte, ein Anspruch",
+      h_services: "Was ich mache",
+      s1_t: "Websites",
+      s1_d: "Unverwechselbare, von Hand gebaute Websites für Läden, Studios und Selbständige. Auffallend im Design, blitzschnell geladen.",
+      s2_t: "Web-Apps & Automatisierung",
+      s2_d: "Kleine Tools, die lästige Arbeit abnehmen — Dashboards, Buchungsabläufe, Daten-Pipelines, interne Apps, die wirklich benutzt werden.",
+      s3_t: "KI-Integration",
+      s3_d: "Assistenten, Chat-Oberflächen und smarte Funktionen auf Claude-Basis — verankert in Ihren Daten, angepasst an Ihren Arbeitsablauf.",
+      contact_kicker: "Ein Projekt im Kopf?",
+      contact_word: "Reden&nbsp;wir",
+      footer_top: "Nach oben ↑",
+      title: "Timon Franzen — Entwickler, Basel & Zürich",
+    },
+    en: {},
+  };
+
+  const langBtn = document.getElementById("langBtn");
+  document.querySelectorAll("[data-i18n], [data-i18n-html]").forEach((el) => {
+    const key = el.dataset.i18n || el.dataset.i18nHtml;
+    if (!(key in I18N.en)) I18N.en[key] = el.dataset.i18nHtml != null ? el.innerHTML : el.textContent;
+  });
+  I18N.en.title = document.title;
+
+  const applyLang = (lang) => {
+    const d = I18N[lang] || I18N.en;
+    document.querySelectorAll("[data-i18n]").forEach((el) => {
+      const v = d[el.dataset.i18n];
+      if (v != null) el.textContent = v;
+    });
+    document.querySelectorAll("[data-i18n-html]").forEach((el) => {
+      const v = d[el.dataset.i18nHtml];
+      if (v != null) el.innerHTML = v;
+    });
+    document.title = d.title;
+    document.documentElement.lang = lang;
+    if (langBtn) langBtn.textContent = lang === "de" ? "EN" : "DE";
+    try { localStorage.setItem("lang", lang); } catch {}
+  };
+
+  let lang = null;
+  try { lang = localStorage.getItem("lang"); } catch {}
+  if (lang !== "de" && lang !== "en") {
+    lang = (navigator.language || "en").toLowerCase().startsWith("de") ? "de" : "en";
+  }
+  if (lang === "de") applyLang("de");
+  else if (langBtn) langBtn.textContent = "DE";
+
+  if (langBtn) langBtn.addEventListener("click", () => {
+    applyLang(document.documentElement.lang === "de" ? "en" : "de");
+  });
+
   /* ambient hero animation — soft aurora of the accent palette.
      Drawn at 1/4 resolution and scaled up, so it stays cheap. */
   const canvas = document.getElementById("heroCanvas");
