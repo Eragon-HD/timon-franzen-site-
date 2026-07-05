@@ -7,6 +7,15 @@ Static one-pager for Timon Franzen: developer, Basel → Zürich.
 - Animations: hero rise-in, scroll reveals, card tilt, marquee, count-up stats,
   pointer glow. All gated behind `prefers-reduced-motion`.
 
+## Deploy (it's automatic)
+
+Live at **https://www.timonfranzen.ch** — GitHub Pages from this repo
+(`Eragon-HD/timon-franzen-site-`). `git push origin main` deploys in ~1 min.
+DNS at Infomaniak: apex A → GitHub Pages IPs, `www` CNAME →
+`eragon-hd.github.io`. The MX/TXT records there are the email — never touch.
+Cache busting: bump `?v=N` on `styles.css`/`main.js` links in `index.html`
+with every CSS/JS change.
+
 ## Run locally
 
 ```bash
