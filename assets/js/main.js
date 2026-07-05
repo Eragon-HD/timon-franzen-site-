@@ -34,15 +34,24 @@
       contact_kicker: "Ein Projekt im Kopf?",
       contact_word: "Reden&nbsp;wir",
       footer_top: "Nach oben ↑",
+      nl_title: "Ein Brief, ab und zu",
+      nl_sub: "Höchstens einmal im Monat — was ich gebaut, gelernt und veröffentlicht habe. Für Kunden und Neugierige.",
+      nl_ph: "du@beispiel.ch",
+      nl_btn: "Anmelden",
+      nl_note: "Kein Spam, kein Tracking. Jederzeit abmeldbar.",
+      nl_done: "Angemeldet — bis bald.",
       title: "Timon Franzen — Entwickler, Basel & Zürich",
     },
-    en: {},
+    en: { nl_done: "You're in — talk soon." },
   };
 
   const langBtn = document.getElementById("langBtn");
-  document.querySelectorAll("[data-i18n], [data-i18n-html]").forEach((el) => {
-    const key = el.dataset.i18n || el.dataset.i18nHtml;
-    if (!(key in I18N.en)) I18N.en[key] = el.dataset.i18nHtml != null ? el.innerHTML : el.textContent;
+  document.querySelectorAll("[data-i18n], [data-i18n-html], [data-i18n-ph]").forEach((el) => {
+    const key = el.dataset.i18n || el.dataset.i18nHtml || el.dataset.i18nPh;
+    if (!(key in I18N.en)) {
+      I18N.en[key] = el.dataset.i18nPh != null ? el.placeholder
+        : el.dataset.i18nHtml != null ? el.innerHTML : el.textContent;
+    }
   });
   I18N.en.title = document.title;
 
@@ -55,6 +64,10 @@
     document.querySelectorAll("[data-i18n-html]").forEach((el) => {
       const v = d[el.dataset.i18nHtml];
       if (v != null) el.innerHTML = v;
+    });
+    document.querySelectorAll("[data-i18n-ph]").forEach((el) => {
+      const v = d[el.dataset.i18nPh];
+      if (v != null) el.placeholder = v;
     });
     document.title = d.title;
     document.documentElement.lang = lang;
@@ -179,6 +192,36 @@
   const setTime = () => { if (timeEl) timeEl.textContent = `${fmt.format(new Date())} CH`; };
   setTime();
   setInterval(setTime, 30_000);
+
+  /* newsletter signup.
+     NEWSLETTER_ENDPOINT: paste a form endpoint (Buttondown, Formspree, …) to go
+     fully automatic. Until then, signups arrive as a prefilled email. */
+  const NEWSLETTER_ENDPOINT = "";
+  const nlForm = document.getElementById("nlForm");
+  if (nlForm) nlForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const email = document.getElementById("nlEmail").value.trim();
+    if (!email) return;
+    const btn = document.getElementById("nlBtn");
+    const done = (I18N[document.documentElement.lang] || I18N.en).nl_done || I18N.en.nl_done;
+    if (NEWSLETTER_ENDPOINT) {
+      try {
+        await fetch(NEWSLETTER_ENDPOINT, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email }),
+        });
+        btn.textContent = done;
+        btn.disabled = true;
+        return;
+      } catch {}
+    }
+    const de = document.documentElement.lang === "de";
+    const subject = encodeURIComponent(de ? "Newsletter-Anmeldung" : "Newsletter signup");
+    const body = encodeURIComponent((de ? "Bitte in den Newsletter aufnehmen: " : "Please add me to the newsletter: ") + email);
+    window.location.href = `mailto:contact@timonfranzen.ch?subject=${subject}&body=${body}`;
+    btn.textContent = done;
+  });
 
   /* footer year */
   const y = document.getElementById("year");
