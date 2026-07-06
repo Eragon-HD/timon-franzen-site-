@@ -4,9 +4,12 @@
 
 `bird-mark.svg` (PRIMARY — the feather fan) · `bird-mark-crescent-alt.svg` (alternate)
 
-The primary: a bird mid-wingbeat as **eleven fanned feather strokes per wing
-in an S-curve, inside a broken thin circle**. Line-drawn, currentColor,
-rotationally symmetric.
+The primary (DELICATE revision, approved 2026-07-06): a bird mid-wingbeat as
+**fourteen hairline feather strokes per wing** (1.15 weight) in an S-curve,
+inside a **whisper-thin broken ring** (0.8 at 55% opacity). Line-drawn,
+currentColor, rotationally symmetric. Airy, fine, precise — do NOT thicken
+the display version; only the favicon adaptation carries more weight
+(feathers 9, ring 4.5) so it survives 16 px.
 
 - In use: site favicon + nav mark (`favicon.svg` = simplified 8-feather
   version in brand orange #ff9a3c, thick strokes for small sizes).
