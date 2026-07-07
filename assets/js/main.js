@@ -34,7 +34,7 @@
       s3_d: "Assistenten, Chat-Oberflächen und smarte Funktionen auf Claude-Basis — verankert in Ihren Daten, angepasst an Ihren Arbeitsablauf.",
       contact_kicker: "Ein Projekt im Kopf?",
       contact_word: "Reden&nbsp;wir",
-      footer_top: "Nach oben ↑",
+      footer_top: "Nach oben ↑", footer_legal: "Impressum &amp; Datenschutz",
       nl_title: "Ein Brief, ab und zu",
       nl_sub: "Höchstens einmal im Monat — was ich gebaut, gelernt und veröffentlicht habe. Für Kunden und Neugierige.",
       nl_ph: "du@beispiel.ch",
