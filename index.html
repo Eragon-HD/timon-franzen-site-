@@ -6,7 +6,7 @@
   <title>Timon Franzen — Developer, Basel & Zürich</title>
   <meta name="description" content="Timon Franzen builds fast, distinctive websites and intelligent tools for people and small businesses in Switzerland." />
   <link rel="stylesheet" href="assets/css/fonts.css" />
-  <link rel="stylesheet" href="assets/css/styles.css?v=5" />
+  <link rel="stylesheet" href="assets/css/styles.css?v=6" />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
 </head>
 <body>
@@ -28,20 +28,28 @@
     <!-- ── Hero ─────────────────────────────────────────── -->
     <section class="hero">
       <canvas class="hero-canvas" id="heroCanvas" aria-hidden="true"></canvas>
-      <p class="kicker reveal"><span class="dot"></span><span data-i18n="kicker">Available for new projects</span></p>
-      <h1 class="hero-title">
-        <span class="line"><span class="word">Timon</span></span>
-        <span class="line"><span class="word accent">Franzen</span></span>
-      </h1>
-      <p class="hero-sub reveal" data-i18n-html="hero_sub">I design and build <em>fast, distinctive websites</em> and
-        <em>intelligent tools</em> — from first sketch to live product.</p>
-      <div class="hero-meta reveal">
-        <span class="chip" data-i18n="chip_loc">Basel → Zürich, Switzerland</span>
-        <span class="chip mono" id="localTime">—:—</span>
+      <div class="hero-main">
+        <p class="kicker reveal"><span class="dot"></span><span data-i18n="kicker">Open to select projects · 2026</span></p>
+        <h1 class="hero-title">
+          <span class="line"><span class="word">Timon</span></span>
+          <span class="line"><span class="word accent">Franzen</span></span>
+        </h1>
+        <p class="hero-sub reveal" data-i18n-html="hero_sub">I design and build <em>fast, distinctive websites</em> and
+          <em>intelligent tools</em> — from first sketch to live product.</p>
+        <div class="hero-meta reveal">
+          <span class="chip" data-i18n="chip_loc">Basel → Zürich, Switzerland</span>
+          <span class="chip mono" id="localTime">—:—</span>
+        </div>
+        <a class="hero-scroll reveal" href="#work" aria-label="Scroll to work">
+          <span class="scroll-line"></span><span data-i18n="hero_scroll">Selected work</span>
+        </a>
       </div>
-      <a class="hero-scroll reveal" href="#work" aria-label="Scroll to work">
-        <span class="scroll-line"></span><span data-i18n="hero_scroll">Selected work</span>
-      </a>
+      <aside class="hero-rail reveal" aria-hidden="true">
+        <div class="rail-row"><span class="rail-k mono">Based</span><span class="rail-v mono">47.56° N · 7.59° E</span></div>
+        <div class="rail-row"><span class="rail-k mono">Focus</span><span class="rail-v mono" data-i18n="rail_focus">Web · Apps · AI</span></div>
+        <div class="rail-row"><span class="rail-k mono">Stack</span><span class="rail-v mono">Hand-built</span></div>
+        <div class="rail-row"><span class="rail-k mono">Status</span><span class="rail-v mono rail-live" data-i18n="rail_status">Select projects</span></div>
+      </aside>
     </section>
 
     <!-- ── Marquee ──────────────────────────────────────── -->
@@ -59,46 +67,45 @@
         <h2 data-i18n="h_work">Selected work</h2>
       </div>
 
-      <div class="cards">
-        <article class="card reveal" data-tilt>
-          <div class="card-top">
-            <span class="card-tag mono" data-i18n="c1_tag">Retail · Basel</span>
-            <span class="card-year mono">2026</span>
+      <div class="studies">
+        <article class="study reveal">
+          <div class="study-shot">
+            <span class="frame-bar" aria-hidden="true"><i></i><i></i><i></i></span>
+            <img src="assets/img/work-twentyfour.jpg" alt="TwentyFour Sport website — hero with a skier" loading="lazy" decoding="async" />
           </div>
-          <h3>TwentyFour Sport</h3>
-          <p data-i18n="c1_desc">A sharp, fast web presence for a Basel outdoor &amp; ski shop — official GTS dealer.
-             Hand-built, no frameworks, loads in a blink.</p>
-          <ul class="card-stack mono">
-            <li>HTML</li><li>CSS</li><li>JS</li>
-          </ul>
+          <div class="study-text">
+            <div class="study-meta mono"><span class="study-tag" data-i18n="c1_tag">Retail · Basel</span><span data-i18n="c1_role">Design &amp; build</span><span>2026</span></div>
+            <h3>TwentyFour Sport</h3>
+            <p data-i18n="c1_desc">A sharp, fast web presence for a Basel outdoor and ski shop — official GTS
+               dealer. Season-aware, bilingual, hand-built with no frameworks, first paint in under a second.</p>
+            <ul class="card-stack mono"><li>HTML</li><li>CSS</li><li>JS</li><li>DE / EN</li></ul>
+          </div>
         </article>
 
-        <article class="card reveal" data-tilt>
-          <div class="card-top">
-            <span class="card-tag mono" data-i18n="c2_tag">AI · Personal OS</span>
-            <span class="card-year mono">2026</span>
+        <article class="study study--rev reveal">
+          <div class="study-shot study-shot--dark">
+            <span class="frame-bar" aria-hidden="true"><i></i><i></i><i></i></span>
+            <img src="assets/img/work-jarvis.jpg" alt="J.A.R.V.I.S. command HUD with an arc-reactor core" loading="lazy" decoding="async" />
           </div>
-          <h3>J.A.R.V.I.S.</h3>
-          <p data-i18n="c2_desc">A voice-enabled AI command centre that runs my day: calendar, tasks, music, Swiss
-             transport, reminders and long-term memory — powered by Claude.</p>
-          <ul class="card-stack mono">
-            <li>Python</li><li>FastAPI</li><li>React</li><li>Claude API</li>
-          </ul>
+          <div class="study-text">
+            <div class="study-meta mono"><span class="study-tag" data-i18n="c2_tag">AI · Personal OS</span><span data-i18n="c2_role">Full stack</span><span>2026</span></div>
+            <h3>J.A.R.V.I.S.</h3>
+            <p data-i18n="c2_desc">A voice-enabled AI command centre: calendar, tasks, music, Swiss transport,
+               reminders and long-term memory behind a live holographic HUD — powered by Claude.</p>
+            <ul class="card-stack mono"><li>Python</li><li>FastAPI</li><li>React</li><li>Claude</li></ul>
+          </div>
         </article>
 
-        <article class="card reveal" data-tilt>
-          <div class="card-top">
-            <span class="card-tag mono" data-i18n="c3_tag">Data · Prospecting</span>
-            <span class="card-year mono">2026</span>
+        <article class="study study--wide reveal">
+          <div class="study-glyph" aria-hidden="true"><span></span><span></span><span></span></div>
+          <div class="study-text">
+            <div class="study-meta mono"><span class="study-tag" data-i18n="c3_tag">Data · Prospecting</span><span data-i18n="c3_role">Tooling</span><span>2026</span></div>
+            <h3>LeadScout</h3>
+            <p data-i18n="c3_desc">An engine that scans Swiss business directories for companies with weak or
+               missing web presence, scores them, and drafts personalised outreach.</p>
+            <p class="card-note"><span class="lock">🔒</span> <span data-i18n="c3_note">Private tool — not shown publicly.</span></p>
+            <ul class="card-stack mono"><li>Python</li><li>SQLite</li><li>Claude</li></ul>
           </div>
-          <h3>LeadScout</h3>
-          <p data-i18n="c3_desc">An engine that scans Swiss business directories for companies with weak or missing
-             web presence, scores them, and drafts personalised outreach.</p>
-          <p class="card-note"><span class="lock">🔒</span> <span data-i18n="c3_note">Described only — for copyright reasons,
-             the tool itself isn't shown publicly.</span></p>
-          <ul class="card-stack mono">
-            <li>Python</li><li>SQLite</li><li>Claude API</li>
-          </ul>
         </article>
       </div>
     </section>
@@ -113,17 +120,19 @@
         <p class="about-lede reveal" data-i18n-html="about_lede">I'm a developer based between Basel and Zürich. Years of
           competitive ice hockey taught me one thing that carries into everything I build:
           <strong>relentless, focused work wins.</strong></p>
-        <div class="about-body reveal">
-          <p data-i18n="about_p1">I care about the details most people scroll past — type, motion, load time, the
-             feel of a page under your thumb. I build with a small footprint and a long
-             attention span: no bloat, no templates, nothing off the shelf.</p>
-          <p data-i18n="about_p2">Right now I'm building websites for Swiss small businesses and AI-powered tools
-             that quietly do real work in the background.</p>
-        </div>
-        <div class="stats reveal">
-          <div class="stat"><span class="stat-num" data-count="3">0</span><span class="stat-label" data-i18n="st1">Products shipped this year</span></div>
-          <div class="stat"><span class="stat-num" data-count="100">0</span><span class="stat-label" data-i18n="st2">Lighthouse performance target</span></div>
-          <div class="stat"><span class="stat-num" data-count="2">0</span><span class="stat-label" data-i18n="st3">Cities, one commitment</span></div>
+        <div class="about-lower">
+          <div class="about-body reveal">
+            <p data-i18n="about_p1">I care about the details most people scroll past — type, motion, load time, the
+               feel of a page under your thumb. I build with a small footprint and a long
+               attention span: no bloat, no templates, nothing off the shelf.</p>
+            <p data-i18n="about_p2">Right now I'm building websites for Swiss small businesses and AI-powered tools
+               that quietly do real work in the background.</p>
+          </div>
+          <div class="stats reveal">
+            <div class="stat"><span class="stat-num" data-count="100">0</span><span class="stat-label" data-i18n="st1">Lighthouse performance</span></div>
+            <div class="stat"><span class="stat-num" data-suffix="s" data-decimals="1" data-count="0.9">0</span><span class="stat-label" data-i18n="st2">First paint, typical build</span></div>
+            <div class="stat"><span class="stat-num" data-count="0">0</span><span class="stat-label" data-i18n="st3">Templates, ever</span></div>
+          </div>
         </div>
       </div>
     </section>
@@ -190,6 +199,6 @@
     <a href="#top" data-i18n="footer_top">Back to top ↑</a>
   </footer>
 
-  <script src="assets/js/main.js?v=4"></script>
+  <script src="assets/js/main.js?v=6"></script>
 </body>
 </html>

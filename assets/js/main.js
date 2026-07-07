@@ -6,24 +6,25 @@
   const I18N = {
     de: {
       nav_work: "Projekte", nav_about: "Über mich", nav_services: "Angebot", nav_cta: "Kontakt",
-      kicker: "Verfügbar für neue Projekte",
+      kicker: "Offen für ausgewählte Projekte · 2026",
       hero_sub: "Ich entwerfe und baue <em>schnelle, unverwechselbare Websites</em> und <em>intelligente Tools</em> — von der ersten Skizze bis zum fertigen Produkt.",
       chip_loc: "Basel → Zürich, Schweiz",
       hero_scroll: "Ausgewählte Projekte",
+      rail_focus: "Web · Apps · KI", rail_status: "Ausgewählte Projekte",
       mq1: "Webdesign", mq2: "Entwicklung", mq3: "KI-Integration", mq4: "Analytik", mq5: "Automatisierung",
       h_work: "Ausgewählte Projekte",
-      c1_tag: "Detailhandel · Basel",
-      c1_desc: "Ein prägnanter, schneller Webauftritt für ein Basler Outdoor- und Skigeschäft — offizieller GTS-Händler. Von Hand gebaut, ohne Frameworks, lädt im Wimpernschlag.",
-      c2_tag: "KI · Persönliches OS",
-      c2_desc: "Eine sprachgesteuerte KI-Kommandozentrale für meinen Alltag: Kalender, Aufgaben, Musik, ÖV, Erinnerungen und Langzeitgedächtnis — angetrieben von Claude.",
-      c3_tag: "Daten · Akquise",
+      c1_tag: "Detailhandel · Basel", c1_role: "Design & Umsetzung", c1_link: "#",
+      c1_desc: "Ein prägnanter, schneller Webauftritt für ein Basler Outdoor- und Skigeschäft — offizieller GTS-Händler. Saisonbewusst, zweisprachig, von Hand gebaut, erster Aufbau in unter einer Sekunde.",
+      c2_tag: "KI · Persönliches OS", c2_role: "Full Stack",
+      c2_desc: "Eine sprachgesteuerte KI-Kommandozentrale: Kalender, Aufgaben, Musik, ÖV, Erinnerungen und Langzeitgedächtnis hinter einem holografischen HUD — angetrieben von Claude.",
+      c3_tag: "Daten · Akquise", c3_role: "Tooling",
       c3_desc: "Ein System, das Schweizer Firmenverzeichnisse nach Unternehmen mit schwachem oder fehlendem Webauftritt durchsucht, sie bewertet und persönliche Erstkontakte entwirft.",
-      c3_note: "Nur beschrieben — aus urheberrechtlichen Gründen wird das Tool selbst nicht öffentlich gezeigt.",
+      c3_note: "Privates Tool — nicht öffentlich gezeigt.",
       h_about: "Über mich",
       about_lede: "Ich bin Entwickler zwischen Basel und Zürich. Jahre im leistungsorientierten Eishockey haben mich eines gelehrt, und es steckt in allem, was ich baue: <strong>konsequente, fokussierte Arbeit gewinnt.</strong>",
       about_p1: "Mich interessieren die Details, an denen die meisten vorbeiscrollen — Typografie, Bewegung, Ladezeit, wie sich eine Seite unter dem Daumen anfühlt. Ich baue schlank und mit langem Atem: kein Ballast, keine Templates, nichts von der Stange.",
       about_p2: "Aktuell baue ich Websites für Schweizer KMU und KI-Tools, die im Hintergrund still echte Arbeit erledigen.",
-      st1: "Produkte dieses Jahr", st2: "Lighthouse-Performance-Ziel", st3: "Städte, ein Anspruch",
+      st1: "Lighthouse-Performance", st2: "Erster Aufbau, typisch", st3: "Templates, jemals",
       h_services: "Was ich mache",
       s1_t: "Websites",
       s1_d: "Unverwechselbare, von Hand gebaute Websites für Läden, Studios und Selbständige. Auffallend im Design, blitzschnell geladen.",
@@ -157,13 +158,17 @@
     for (const en of entries) {
       if (!en.isIntersecting) continue;
       cio.unobserve(en.target);
-      const target = +en.target.dataset.count;
-      if (reduced) { en.target.textContent = target; continue; }
+      const el = en.target;
+      const target = +el.dataset.count;
+      const decimals = +el.dataset.decimals || 0;
+      const suffix = el.dataset.suffix || "";
+      const fmt = (v) => v.toFixed(decimals) + suffix;
+      if (reduced) { el.textContent = fmt(target); continue; }
       const t0 = performance.now();
       const dur = 1200;
       const tick = (t) => {
         const p = Math.min((t - t0) / dur, 1);
-        en.target.textContent = Math.round(target * (1 - Math.pow(1 - p, 3)));
+        el.textContent = fmt(target * (1 - Math.pow(1 - p, 3)));
         if (p < 1) requestAnimationFrame(tick);
       };
       requestAnimationFrame(tick);
