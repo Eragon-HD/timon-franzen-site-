@@ -1,49 +1,91 @@
-/* Timon Franzen — site interactions. No dependencies. */
+/* Timon Franzen site interactions. No dependencies. */
 (() => {
   const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   /* ── EN/DE language switch (Swiss German: ss, never ß) ── */
   const I18N = {
     de: {
-      nav_work: "Projekte", nav_about: "Über mich", nav_services: "Angebot", nav_cta: "Kontakt",
-      kicker: "Offen für ausgewählte Projekte · 2026",
-      hero_sub: "Ich entwerfe und baue <em>schnelle, unverwechselbare Websites</em> und <em>intelligente Tools</em> — von der ersten Skizze bis zum fertigen Produkt.",
+      nav_work: "Projekte", nav_about: "Über mich", nav_services: "Angebot", nav_salons: "Für Salons", nav_cta: "Kontakt",
+      kicker: "Ich nehme neue Projekte an.",
+      hero_sub: "Ich entwerfe und baue <em>schnelle, unverwechselbare Websites</em> und <em>intelligente Tools</em>, von der ersten Skizze bis zum fertigen Produkt.",
       chip_loc: "Basel → Zürich, Schweiz",
       hero_scroll: "Ausgewählte Projekte",
-      rail_focus: "Web · Apps · KI", rail_status: "Ausgewählte Projekte",
-      mq1: "Webdesign", mq2: "Entwicklung", mq3: "KI-Integration", mq4: "Analytik", mq5: "Automatisierung",
+      rail_focus: "Web · Apps · KI", rail_status: "Ich nehme neue Projekte an.",
       h_work: "Ausgewählte Projekte",
       c1_tag: "Detailhandel · Basel", c1_role: "Design & Umsetzung", c1_link: "#",
-      c1_desc: "Ein prägnanter, schneller Webauftritt für ein Basler Outdoor- und Skigeschäft — offizieller GTS-Händler. Saisonbewusst, zweisprachig, von Hand gebaut, erster Aufbau in unter einer Sekunde.",
+      c1_desc: "Ein prägnanter, schneller Webauftritt für ein Basler Outdoor- und Skigeschäft. Offizieller GTS-Händler. Saisonbewusst, zweisprachig, von Hand gebaut, erster Aufbau in unter einer Sekunde.",
       c2_tag: "KI · Persönliches OS", c2_role: "Full Stack",
-      c2_desc: "Eine sprachgesteuerte KI-Kommandozentrale: Kalender, Aufgaben, Musik, ÖV, Erinnerungen und Langzeitgedächtnis hinter einem holografischen HUD — angetrieben von Claude.",
-      c3_tag: "Daten · Akquise", c3_role: "Tooling",
-      c3_desc: "Ein System, das Schweizer Firmenverzeichnisse nach Unternehmen mit schwachem oder fehlendem Webauftritt durchsucht, sie bewertet und persönliche Erstkontakte entwirft.",
-      c3_note: "Privates Tool — nicht öffentlich gezeigt.",
+      c2_desc: "Eine sprachgesteuerte KI-Kommandozentrale: Kalender, Aufgaben, Musik, ÖV, Erinnerungen und Langzeitgedächtnis hinter einem holografischen HUD, angetrieben von Claude.",
       h_about: "Über mich",
       about_lede: "Ich bin Entwickler zwischen Basel und Zürich. Jahre im leistungsorientierten Eishockey haben mich eines gelehrt, und es steckt in allem, was ich baue: <strong>konsequente, fokussierte Arbeit gewinnt.</strong>",
-      about_p1: "Mich interessieren die Details, an denen die meisten vorbeiscrollen — Typografie, Bewegung, Ladezeit, wie sich eine Seite unter dem Daumen anfühlt. Ich baue schlank und mit langem Atem: kein Ballast, keine Templates, nichts von der Stange.",
+      about_p1: "Mich interessieren Details, an denen die meisten vorbeiscrollen: Typografie, Bewegung, Ladezeit und das Gefühl einer Seite unter dem Daumen. Ich baue schlank und mit langem Atem.",
       about_p2: "Aktuell baue ich Websites für Schweizer KMU und KI-Tools, die im Hintergrund still echte Arbeit erledigen.",
-      st1: "Lighthouse-Performance", st2: "Erster Aufbau, typisch", st3: "Templates, jemals",
+      st1: "Lighthouse-Performance", st2: "Erster Aufbau, typisch",
       h_services: "Was ich mache",
       s1_t: "Websites",
       s1_d: "Unverwechselbare, von Hand gebaute Websites für Läden, Studios und Selbständige. Auffallend im Design, blitzschnell geladen.",
       s2_t: "Web-Apps & Automatisierung",
-      s2_d: "Kleine Tools, die lästige Arbeit abnehmen — Dashboards, Buchungsabläufe, Daten-Pipelines, interne Apps, die wirklich benutzt werden.",
+      s2_d: "Kleine Tools, die lästige Arbeit abnehmen: Dashboards, Buchungsabläufe, Daten-Pipelines und interne Apps, die wirklich benutzt werden.",
       s3_t: "KI-Integration",
-      s3_d: "Assistenten, Chat-Oberflächen und smarte Funktionen auf Claude-Basis — verankert in Ihren Daten, angepasst an Ihren Arbeitsablauf.",
+      s3_d: "Assistenten, Chat-Oberflächen und smarte Funktionen auf Claude-Basis, verankert in Ihren Daten und angepasst an Ihren Arbeitsablauf.",
       contact_kicker: "Ein Projekt im Kopf?",
       contact_word: "Reden&nbsp;wir",
       footer_top: "Nach oben ↑", footer_legal: "Impressum &amp; Datenschutz",
       nl_title: "Ein Brief, ab und zu",
-      nl_sub: "Höchstens einmal im Monat — was ich gebaut, gelernt und veröffentlicht habe. Für Kunden und Neugierige.",
+      nl_sub: "Höchstens einmal im Monat. Was ich gebaut, gelernt und veröffentlicht habe. Für Kunden und Neugierige.",
       nl_ph: "du@beispiel.ch",
       nl_btn: "Anmelden",
       nl_note: "Kein Spam, kein Tracking. Jederzeit abmeldbar.",
-      nl_done: "Angemeldet — bis bald.",
-      title: "Timon Franzen — Entwickler, Basel & Zürich",
+      nl_done: "Angemeldet. Bis bald.",
+      salons_title: "Websites für Coiffeur-Salons in Zürich. Live in 7 Tagen.",
+      salons_kicker: "Websites für Salons · Zürich",
+      salons_intro: "Innerhalb von sieben Arbeitstagen live, sobald alle Inhalte da sind. Du lieferst Fotos, Preise und ein paar Sätze über den Salon. Wir kümmern uns um den Rest.",
+      salons_demo: "Demo ansehen",
+      salons_contact_cta: "Gespräch vereinbaren",
+      salons_page_title: "Websites für Coiffeur-Salons in Zürich · Timon Franzen",
+      salons_price_kicker: "Offene Preise",
+      salons_price_title: "Ein Preis für den Start. Ein klarer Betrag für die Betreuung.",
+      salons_price_strip: "CHF 2'900 + CHF 99/Monat",
+      salons_launch_strip: "Erste 3 Salons: CHF 1'500 einmalig",
+      salons_setup_label: "Website, einmalig",
+      salons_setup_price: "CHF 2'900",
+      salons_monthly_label: "Pflege und Betreuung: CHF 99/Monat",
+      salons_intro_offer: "Erste 3 Salons",
+      salons_first_price: "CHF 1'500",
+      salons_offer_note: "einmalig, danach CHF 99 pro Monat",
+      salons_care_note: "Enthält Website- und Domain-Überwachung, Backups und bis zu zwei Änderungen pro Monat. Mindestlaufzeit 12 Monate, danach mit 3 Monaten Frist auf Monatsende kündbar.",
+      salons_extras_note: "Die Domain läuft auf deinen Namen und wird direkt bezahlt. Ein Buchungssystem ist nicht enthalten. Wir verlinken dein bestehendes Tool. Fotos kommen von dir; professionelle Fotos auf Anfrage.",
+      salons_includes_kicker: "Umfang",
+      salons_includes_title: "Was drin ist",
+      salons_includes_intro: "Eine klare Website mit den Informationen, die deine Kundinnen vor der Buchung brauchen.",
+      salons_include_1: "Startseite mit Salon, Inhaberin und Fotos",
+      salons_include_2: "Leistungen mit Preisen und Dauer",
+      salons_include_3: "Deine echten Google-Bewertungen",
+      salons_include_4: "Links zu Buchungstool, Telefon und E-Mail",
+      salons_include_5: "Aktuell-Leiste für Ferien und Aktionen",
+      salons_include_6: "Für Handy optimiert und schnell geladen",
+      salons_include_7: "Strukturierte Firmendaten für Google und KI-Assistenten",
+      salons_include_8: "Impressum und Datenschutzerklärung",
+      salons_process_kicker: "Zusammenarbeit",
+      salons_process_title: "In vier Schritten live",
+      salons_step_1_title: "Auftrag und Start",
+      salons_step_1_body: "Du bestätigst den Auftrag. Zum Start wird die Hälfte des einmaligen Preises fällig.",
+      salons_step_2_title: "Du lieferst die Inhalte",
+      salons_step_2_body: "Fotos, Preise, Leistungen und ein paar Sätze über dich. Deine Domain bleibt auf deinen Namen.",
+      salons_step_3_title: "Entwurf und Korrekturen",
+      salons_step_3_body: "Der erste Entwurf kommt innerhalb von fünf Arbeitstagen. Zwei Korrekturrunden sind inklusive.",
+      salons_step_4_title: "Restzahlung und Go-live",
+      salons_step_4_body: "Nach der Freigabe und Restzahlung geht die Website live, spätestens sieben Arbeitstage nach Erhalt aller Inhalte.",
+      salons_team_kicker: "Kontakt",
+      salons_team_title: "Timon und Sander",
+      salons_team_intro: "Timon baut die Website. Sander führt die Gespräche mit Salons. Schreib uns, und wir melden uns gemeinsam.",
+      salons_timon_role: "Konzept und Umsetzung",
+      salons_sander_role: "Gespräche und Verkauf",
+      salons_team_email: "Timon und Sander kontaktieren",
+      salons_back: "Zur Hauptseite",
+      title: "Timon Franzen, Entwickler, Basel & Zürich",
     },
-    en: { nl_done: "You're in — talk soon." },
+    en: { nl_done: "You're in. Talk soon." },
   };
 
   const langBtn = document.getElementById("langBtn");
@@ -70,7 +112,8 @@
       const v = d[el.dataset.i18nPh];
       if (v != null) el.placeholder = v;
     });
-    document.title = d.title;
+    const pageTitle = document.querySelector("title[data-i18n]");
+    document.title = pageTitle ? (d[pageTitle.dataset.i18n] || d.title) : d.title;
     document.documentElement.lang = lang;
     if (langBtn) langBtn.textContent = lang === "de" ? "EN" : "DE";
     try { localStorage.setItem("lang", lang); } catch {}
@@ -88,57 +131,6 @@
     applyLang(document.documentElement.lang === "de" ? "en" : "de");
   });
 
-  /* ambient hero animation — soft aurora of the accent palette.
-     Drawn at 1/4 resolution and scaled up, so it stays cheap. */
-  const canvas = document.getElementById("heroCanvas");
-  if (canvas && !reduced) {
-    const ctx = canvas.getContext("2d");
-    const SCALE = 0.25;
-    let w = 0, h = 0, raf = 0;
-    const blobs = [
-      { c: [255, 154, 60], r: 0.42, ox: 0.72, oy: 0.30, ax: 0.16, ay: 0.12, sp: 0.00023, ph: 0.0, a: 0.16 },
-      { c: [255, 91, 91], r: 0.36, ox: 0.55, oy: 0.62, ax: 0.20, ay: 0.10, sp: 0.00017, ph: 2.1, a: 0.13 },
-      { c: [150, 90, 255], r: 0.30, ox: 0.85, oy: 0.68, ax: 0.10, ay: 0.16, sp: 0.00029, ph: 4.2, a: 0.10 },
-      { c: [255, 200, 120], r: 0.22, ox: 0.35, oy: 0.25, ax: 0.12, ay: 0.14, sp: 0.00021, ph: 1.2, a: 0.09 },
-    ];
-    const size = () => {
-      const r = canvas.getBoundingClientRect();
-      w = canvas.width = Math.max(1, r.width * SCALE);
-      h = canvas.height = Math.max(1, r.height * SCALE);
-    };
-    size();
-    window.addEventListener("resize", size, { passive: true });
-    const draw = (t) => {
-      ctx.clearRect(0, 0, w, h);
-      ctx.globalCompositeOperation = "lighter";
-      for (const b of blobs) {
-        const x = (b.ox + Math.sin(t * b.sp + b.ph) * b.ax) * w;
-        const y = (b.oy + Math.cos(t * b.sp * 1.3 + b.ph) * b.ay) * h;
-        const rad = b.r * Math.max(w, h);
-        const g = ctx.createRadialGradient(x, y, 0, x, y, rad);
-        g.addColorStop(0, `rgba(${b.c[0]},${b.c[1]},${b.c[2]},${b.a})`);
-        g.addColorStop(1, "rgba(0,0,0,0)");
-        ctx.fillStyle = g;
-        ctx.fillRect(0, 0, w, h);
-      }
-      raf = requestAnimationFrame(draw);
-    };
-    raf = requestAnimationFrame(draw);
-    document.addEventListener("visibilitychange", () => {
-      if (document.hidden) cancelAnimationFrame(raf);
-      else raf = requestAnimationFrame(draw);
-    });
-  }
-
-  /* pointer-following glow */
-  if (!reduced) {
-    const root = document.documentElement;
-    window.addEventListener("pointermove", (e) => {
-      root.style.setProperty("--mx", `${(e.clientX / innerWidth) * 100}%`);
-      root.style.setProperty("--my", `${(e.clientY / innerHeight) * 100}%`);
-    }, { passive: true });
-  }
-
   /* scroll reveals, staggered per batch */
   const revealed = document.querySelectorAll(".reveal");
   const io = new IntersectionObserver((entries) => {
@@ -152,30 +144,6 @@
   }, { threshold: 0.15, rootMargin: "0px 0px -40px 0px" });
   revealed.forEach((el) => io.observe(el));
 
-  /* count-up stats */
-  const counters = document.querySelectorAll(".stat-num[data-count]");
-  const cio = new IntersectionObserver((entries) => {
-    for (const en of entries) {
-      if (!en.isIntersecting) continue;
-      cio.unobserve(en.target);
-      const el = en.target;
-      const target = +el.dataset.count;
-      const decimals = +el.dataset.decimals || 0;
-      const suffix = el.dataset.suffix || "";
-      const fmt = (v) => v.toFixed(decimals) + suffix;
-      if (reduced) { el.textContent = fmt(target); continue; }
-      const t0 = performance.now();
-      const dur = 1200;
-      const tick = (t) => {
-        const p = Math.min((t - t0) / dur, 1);
-        el.textContent = fmt(target * (1 - Math.pow(1 - p, 3)));
-        if (p < 1) requestAnimationFrame(tick);
-      };
-      requestAnimationFrame(tick);
-    }
-  }, { threshold: 0.5 });
-  counters.forEach((el) => cio.observe(el));
-
   /* subtle 3D tilt on work cards */
   if (!reduced && matchMedia("(hover: hover)").matches) {
     document.querySelectorAll("[data-tilt]").forEach((card) => {
@@ -188,15 +156,6 @@
       card.addEventListener("pointerleave", () => { card.style.transform = ""; });
     });
   }
-
-  /* live Swiss clock */
-  const timeEl = document.getElementById("localTime");
-  const fmt = new Intl.DateTimeFormat("de-CH", {
-    hour: "2-digit", minute: "2-digit", timeZone: "Europe/Zurich",
-  });
-  const setTime = () => { if (timeEl) timeEl.textContent = `${fmt.format(new Date())} CH`; };
-  setTime();
-  setInterval(setTime, 30_000);
 
   /* newsletter signup.
      NEWSLETTER_ENDPOINT: paste a form endpoint (Buttondown, Formspree, …) to go
