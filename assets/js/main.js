@@ -1,6 +1,18 @@
 /* Timon Franzen site interactions. No dependencies. */
 (() => {
   const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const desktopInput = window.matchMedia("(min-width: 821px) and (hover: hover) and (pointer: fine)");
+  if (!reduced && desktopInput.matches && document.currentScript) {
+    const lenisScript = document.createElement("script");
+    lenisScript.src = new URL("../vendor/lenis.min.js?v=1", document.currentScript.src).href;
+    let lenisInstance;
+    lenisScript.onload = () => {
+      if (window.Lenis && desktopInput.matches) {
+        lenisInstance = new window.Lenis({ autoRaf: true, anchors: true, lerp: 0.12 });
+      }
+    };
+    document.head.append(lenisScript);
+  }
 
   /* ── EN/DE language switch (Swiss German: ss, never ß) ── */
   const I18N = {
@@ -122,7 +134,9 @@
   let lang = null;
   try { lang = localStorage.getItem("lang"); } catch {}
   if (lang !== "de" && lang !== "en") {
-    lang = (navigator.language || "en").toLowerCase().startsWith("de") ? "de" : "en";
+    lang = document.body.classList.contains("salons-page")
+      ? "de"
+      : (navigator.language || "en").toLowerCase().startsWith("de") ? "de" : "en";
   }
   if (lang === "de") applyLang("de");
   else if (langBtn) langBtn.textContent = "DE";
@@ -131,31 +145,16 @@
     applyLang(document.documentElement.lang === "de" ? "en" : "de");
   });
 
-  /* scroll reveals, staggered per batch */
+  /* One restrained reveal for page sections. */
   const revealed = document.querySelectorAll(".reveal");
   const io = new IntersectionObserver((entries) => {
-    let i = 0;
     for (const en of entries) {
       if (!en.isIntersecting) continue;
-      en.target.style.setProperty("--d", `${Math.min(i++ * 0.09, 0.45)}s`);
       en.target.classList.add("in");
       io.unobserve(en.target);
     }
   }, { threshold: 0.15, rootMargin: "0px 0px -40px 0px" });
   revealed.forEach((el) => io.observe(el));
-
-  /* subtle 3D tilt on work cards */
-  if (!reduced && matchMedia("(hover: hover)").matches) {
-    document.querySelectorAll("[data-tilt]").forEach((card) => {
-      card.addEventListener("pointermove", (e) => {
-        const r = card.getBoundingClientRect();
-        const rx = ((e.clientY - r.top) / r.height - 0.5) * -6;
-        const ry = ((e.clientX - r.left) / r.width - 0.5) * 6;
-        card.style.transform = `perspective(800px) rotateX(${rx}deg) rotateY(${ry}deg) translateY(-4px)`;
-      });
-      card.addEventListener("pointerleave", () => { card.style.transform = ""; });
-    });
-  }
 
   /* newsletter signup.
      NEWSLETTER_ENDPOINT: paste a form endpoint (Buttondown, Formspree, …) to go
