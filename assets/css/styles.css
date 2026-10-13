@@ -1,6 +1,6 @@
 /* ── Timon Franzen — personal site ─────────────────────────────
-   Dark, warm-accent, type-led. Bricolage Grotesque display,
-   Geist body, Geist Mono labels. No frameworks. */
+  Dark, warm-accent, type-led. Bricolage Grotesque display,
+  Work Sans body, IBM Plex Mono labels. No frameworks. */
 
 :root {
   --bg: #0a0a0c;
@@ -11,8 +11,8 @@
   --faint: rgba(242, 240, 236, 0.32);
   --accent: #c97849;
   --disp: "Bricolage Grotesque", system-ui, sans-serif;
-  --body: "Geist", system-ui, sans-serif;
-  --mono: "Geist Mono", ui-monospace, monospace;
+  --body: "Work Sans", system-ui, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, monospace;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
 }
 

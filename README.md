@@ -3,7 +3,7 @@
 Static one-pager for Timon Franzen: developer, Basel → Zürich.
 
 - No frameworks, no build step. `index.html` + `assets/css` + `assets/js`.
-- Fonts are self-hosted (Bricolage Grotesque, Geist, Geist Mono) — works offline.
+- Fonts are self-hosted (Bricolage Grotesque, Work Sans, IBM Plex Mono) and work offline.
 - Animations: hero rise-in, scroll reveals and card tilt. All gated behind
     `prefers-reduced-motion`.
 
