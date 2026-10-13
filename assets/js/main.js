@@ -133,11 +133,7 @@
 
   let lang = null;
   try { lang = localStorage.getItem("lang"); } catch {}
-  if (lang !== "de" && lang !== "en") {
-    lang = document.body.classList.contains("salons-page")
-      ? "de"
-      : (navigator.language || "en").toLowerCase().startsWith("de") ? "de" : "en";
-  }
+  if (lang !== "de" && lang !== "en") lang = "de";
   if (lang === "de") applyLang("de");
   else if (langBtn) langBtn.textContent = "DE";
 

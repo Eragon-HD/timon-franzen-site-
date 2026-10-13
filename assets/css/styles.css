@@ -317,7 +317,7 @@ main, header, footer { position: relative; z-index: 2; }
   border-top: 1px solid var(--line); margin-top: 58px; padding-top: 20px;
 }
 .salons-price-strip strong { color: var(--text); font: 600 18px var(--mono); }
-.salons-price-strip span { color: var(--faint); font-size: 13px; }
+.salons-price-strip span { color: rgba(242, 240, 236, 0.88); font-size: 13px; }
 .salons-section { padding: 104px 0; border-bottom: 1px solid var(--line); }
 .salons-section--surface { background: var(--surface); }
 .salons-heading { max-width: 760px; margin-bottom: 52px; }
@@ -334,7 +334,7 @@ main, header, footer { position: relative; z-index: 2; }
 .salons-pricing__main span, .salons-pricing__first span { color: var(--muted); font-size: 14px; }
 .salons-pricing__first { border-left: 1px solid var(--line); padding-left: 28px; }
 .salons-pricing__first strong { display: block; margin: 10px 0; color: var(--text); font: 600 24px var(--mono); }
-.salons-fineprint { max-width: 800px; display: grid; gap: 12px; margin-top: 34px; color: var(--faint); font-size: 13px; }
+.salons-fineprint { max-width: 800px; display: grid; gap: 12px; margin-top: 34px; color: rgba(242, 240, 236, 0.88); font-size: 13px; }
 .salons-process { list-style: none; padding: 0; counter-reset: salons-step; }
 .salons-process li {
   counter-increment: salons-step; display: grid; grid-template-columns: 80px minmax(0, 1fr);
