@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Timon Franzen, Developer, Basel & Zürich</title>
-  <meta name="description" content="Timon Franzen builds fast, distinctive websites and intelligent tools for people and small businesses in Switzerland." />
+  <title>Timon Franzen · Websites for hair salons in Zurich</title>
+  <meta name="description" content="Websites für Coiffeur-Salons in Zürich: Preisliste, Team und Online-Termin, in 7 Tagen live. Timon Franzen baut schnelle Websites und KI-Tools." />
   <link rel="stylesheet" href="assets/css/fonts.css?v=11" />
-  <link rel="stylesheet" href="assets/css/styles.css?v=13" />
+  <link rel="stylesheet" href="assets/css/styles.css?v=14" />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
 </head>
 <body>
@@ -28,15 +28,16 @@
     <!-- ── Hero ─────────────────────────────────────────── -->
     <section class="hero">
       <div class="hero-main">
-        <p class="kicker reveal"><span data-i18n="kicker">Taking on new projects</span></p>
+        <p class="kicker reveal"><span data-i18n="kicker">Websites for hair salons · Zurich</span></p>
         <h1 class="hero-title">
           <span class="line"><span class="word">Timon</span></span>
           <span class="line"><span class="word accent">Franzen</span></span>
         </h1>
-        <p class="hero-sub reveal" data-i18n-html="hero_sub">I design and build <em>fast, distinctive websites</em> and
-          <em>intelligent tools</em>, from first sketch to live product.</p>
-        <div class="hero-meta reveal">
-          <span class="chip" data-i18n="chip_loc">Basel → Zürich, Switzerland</span>
+        <p class="hero-sub reveal" data-i18n-html="hero_sub">I build <em>websites for hair salons in Zurich</em>: prices, team and
+          online booking, live in seven days. Alongside that I build <em>AI tools</em>.</p>
+        <div class="hero-actions reveal">
+          <a class="salons-button" href="https://demo-salon-zuerich.netlify.app/" target="_blank" rel="noopener" data-i18n="hero_demo">See a salon website</a>
+          <a class="salons-text-link" href="/salons/" data-i18n="hero_offer">Offer &amp; prices →</a>
         </div>
         <a class="hero-scroll reveal" href="#work" aria-label="Scroll to work">
           <span class="scroll-line"></span><span data-i18n="hero_scroll">Selected work</span>
@@ -58,6 +59,20 @@
 
       <div class="studies">
         <article class="study reveal">
+          <a class="study-shot" href="https://demo-salon-zuerich.netlify.app/" target="_blank" rel="noopener" aria-label="Open the salon demo">
+            <span class="frame-bar" aria-hidden="true"><i></i><i></i><i></i></span>
+            <img src="assets/img/work-salon.jpg" alt="Demo website for a Zurich hair salon, hero with the salon interior" loading="lazy" decoding="async" width="1200" height="750" />
+          </a>
+          <div class="study-text">
+            <div class="study-meta mono"><span class="study-tag" data-i18n="c0_tag">Hair salon · Zurich</span><span data-i18n="c0_role">Demo</span><span>2026</span></div>
+            <h3>Salon Muster</h3>
+            <p data-i18n="c0_desc">What a salon website from me looks like: price list, team, opening hours and online
+               booking, built for the phone. A fictional salon, so click around freely.</p>
+            <a class="study-link" href="https://demo-salon-zuerich.netlify.app/" target="_blank" rel="noopener" data-i18n="c0_link">Open the demo →</a>
+          </div>
+        </article>
+
+        <article class="study study--rev reveal">
           <div class="study-shot">
             <span class="frame-bar" aria-hidden="true"><i></i><i></i><i></i></span>
             <img src="assets/img/work-twentyfour.jpg" alt="TwentyFour Sport website, hero with a skier" loading="lazy" decoding="async" />
@@ -71,7 +86,7 @@
           </div>
         </article>
 
-        <article class="study study--rev reveal">
+        <article class="study reveal">
           <div class="study-shot study-shot--dark">
             <span class="frame-bar" aria-hidden="true"><i></i><i></i><i></i></span>
             <img src="assets/img/work-jarvis.jpg" alt="J.A.R.V.I.S. command HUD with an arc-reactor core" loading="lazy" decoding="async" />
@@ -122,8 +137,8 @@
         <div class="service reveal">
           <span class="service-num mono">a</span>
           <h3 data-i18n="s1_t">Websites</h3>
-          <p data-i18n="s1_d">Distinctive, hand-built sites for shops, studios and independents. Designed to
-             stand out, engineered to load instantly.</p>
+          <p data-i18n-html="s1_d">For hair salons, shops and studios: price list, team and online booking, fast on
+             every phone. Live in seven days. <a href="/salons/">Salon offer →</a></p>
         </div>
         <div class="service reveal">
           <span class="service-num mono">b</span>
@@ -140,27 +155,10 @@
       </div>
     </section>
 
-    <!-- ── Newsletter ───────────────────────────────────── -->
-    <section class="section" id="newsletter">
-      <div class="nl-box reveal">
-        <div class="nl-copy">
-          <h2 data-i18n="nl_title">A letter, occasionally</h2>
-          <p data-i18n="nl_sub">Once a month at most. What I built, learned and shipped.
-             For clients and the curious.</p>
-        </div>
-        <form class="nl-form" id="nlForm">
-          <input type="email" id="nlEmail" required autocomplete="email"
-                 placeholder="you@example.com" data-i18n-ph="nl_ph" aria-label="E-Mail" />
-          <button type="submit" class="nl-btn" id="nlBtn" data-i18n="nl_btn">Sign up</button>
-        </form>
-        <p class="nl-note mono" data-i18n="nl_note">No spam, no tracking. Unsubscribe any time.</p>
-      </div>
-    </section>
-
     <!-- ── Contact ──────────────────────────────────────── -->
     <section class="contact" id="contact">
       <p class="kicker reveal"><span data-i18n="contact_kicker">Have a project in mind?</span></p>
-      <a class="contact-mail reveal" href="mailto:contact@timonfranzen.ch">
+      <a class="contact-mail reveal" href="mailto:contact@timonfranzen.ch?subject=Website">
         <span class="contact-word" data-i18n-html="contact_word">Let's&nbsp;talk</span>
         <span class="contact-arrow">→</span>
       </a>
@@ -176,6 +174,6 @@
     </span>
   </footer>
 
-  <script src="assets/js/main.js?v=13"></script>
+  <script src="assets/js/main.js?v=14"></script>
 </body>
 </html>

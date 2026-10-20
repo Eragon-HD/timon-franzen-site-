@@ -417,3 +417,18 @@ main, header, footer { position: relative; z-index: 2; }
   .hero-title .word { transform: none; }
   .reveal { opacity: 1; transform: none; }
 }
+
+/* ── homepage salon focus (2026-10-20) ── */
+.hero-actions { display: flex; align-items: center; gap: 14px 24px; flex-wrap: wrap; }
+.hero-actions .salons-button { padding: 12px 24px; font-size: 15px; }
+a.study-shot { color: inherit; }
+.study-link {
+  width: fit-content; min-height: 44px; display: inline-flex; align-items: center;
+  color: var(--accent); font-size: 15px; font-weight: 600; text-decoration: none;
+}
+.study-link:hover { text-decoration: underline; text-underline-offset: 5px; }
+.service p a { color: var(--text); text-underline-offset: 4px; white-space: nowrap; }
+@media (max-width: 820px) {
+  .study { grid-template-columns: 1fr; gap: 20px; }
+  .study--rev .study-shot { order: 0; }
+}
